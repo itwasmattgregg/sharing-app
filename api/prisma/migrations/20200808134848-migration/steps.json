@@ -1,0 +1,145 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "itemsBorrowed",
+      "type": "Item",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "itemsBorrowed"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "itemsBorrowed"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"ItemsBorrowed\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "itemsOwned"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"ItemsOwned\""
+    },
+    {
+      "tag": "DeleteArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "itemsOwned"
+        },
+        "directive": "relation"
+      },
+      "argument": "name"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Item",
+      "field": "borrower",
+      "type": "User",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "borrower"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "borrower"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"ItemsBorrowed\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "borrower"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[borrowerId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "borrower"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Item",
+      "field": "borrowerId",
+      "type": "Int",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Item",
+          "field": "owner"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"ItemsOwned\""
+    }
+  ]
+}
