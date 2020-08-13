@@ -6,14 +6,14 @@ const Routes = () => {
       <Route path="/contact" page={ContactPage} name="contact" />
       <Route path="/blog-post/{id:Int}" page={BlogPostPage} name="blogPost" />
       <Private unauthenticated="home">
-        <Route path="/admin/posts/new" page={NewPostPage} name="newPost" />
+        <Route path="/items/new" page={NewItemPage} name="newItem" />
         <Route
-          path="/admin/posts/{id:Int}/edit"
-          page={EditPostPage}
-          name="editPost"
+          path="/items/{id:Int}/edit"
+          page={EditItemPage}
+          name="editItem"
         />
-        <Route path="/admin/posts/{id:Int}" page={PostPage} name="post" />
-        <Route path="/admin/posts" page={PostsPage} name="posts" />
+        <Route path="/items/{id:Int}" page={ItemPage} name="item" />
+        <Route path="/items" page={ItemsPage} name="items" />
       </Private>
       <Route path="/about" page={AboutPage} name="about" />
       <Route path="/" page={HomePage} name="home" />

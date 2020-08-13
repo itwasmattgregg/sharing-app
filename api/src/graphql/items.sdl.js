@@ -6,6 +6,7 @@ export const schema = gql`
     title: String!
     description: String!
     visible: Boolean!
+    createdAt: DateTime!
     owner: User!
     ownerId: Int!
     borrower: User
@@ -14,6 +15,7 @@ export const schema = gql`
 
   type Query {
     items: [Item!]!
+    item(id: Int!): Item!
   }
 
   input CreateItemInput {
@@ -33,6 +35,9 @@ export const schema = gql`
   }
 
   type Mutation {
+    createItem(input: CreateItemInput!): Item!
+    updateItem(id: Int!, input: UpdateItemInput!): Item!
+    deleteItem(id: Int!): Item!
     checkoutItem(id: Int!): Item!
   }
 `

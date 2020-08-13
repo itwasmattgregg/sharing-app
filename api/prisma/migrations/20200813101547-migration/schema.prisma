@@ -1,6 +1,6 @@
 datasource DS {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -27,10 +27,10 @@ model User {
 
 model Item {
   id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
   title       String
   description String
-  visible     Boolean  @default(true)
-  createdAt   DateTime @default(now())
+  visible     Boolean
   owner       User     @relation("ItemsOwned", fields: [ownerId], references: [id])
   ownerId     Int
   borrower    User?    @relation("ItemsBorrowed", fields: [borrowerId], references: [id])

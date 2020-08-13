@@ -1,4 +1,3 @@
-import { Link } from '@redwoodjs/router'
 import BlogPostCell from 'src/components/BlogPostCell'
 
 import BlogLayout from 'src/layouts/BlogLayout/BlogLayout'
