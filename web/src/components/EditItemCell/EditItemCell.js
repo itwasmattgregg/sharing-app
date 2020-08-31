@@ -9,8 +9,6 @@ export const QUERY = gql`
       title
       description
       visible
-      ownerId
-      borrowerId
     }
   }
 `
@@ -34,11 +32,11 @@ export const Success = ({ item }) => {
   })
 
   const onSave = (input, id) => {
-    const castInput = Object.assign(input, {
-      ownerId: parseInt(input.ownerId),
-      borrowerId: parseInt(input.borrowerId),
-    })
-    updateItem({ variables: { id, input: castInput } })
+    // const castInput = Object.assign(input, {
+    //   ownerId: parseInt(input.ownerId),
+    //   borrowerId: parseInt(input.borrowerId),
+    // })
+    updateItem({ variables: { id, input } })
   }
 
   return (

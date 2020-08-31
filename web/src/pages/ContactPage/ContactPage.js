@@ -1,8 +1,7 @@
 import { Form, TextField, Submit, useMutation, FormError } from '@redwoodjs/web'
 import { TextAreaField, FieldError } from '@redwoodjs/web/dist/form/form'
 import { useForm } from 'react-hook-form'
-
-import BlogLayout from 'src/layouts/BlogLayout/BlogLayout'
+import MainLayout from 'src/layouts/MainLayout/MainLayout'
 
 const ContactPage = () => {
   const formMethods = useForm()
@@ -26,7 +25,7 @@ const ContactPage = () => {
   }
 
   return (
-    <BlogLayout>
+    <MainLayout>
       <Form
         onSubmit={onSubmit}
         validation={{ mode: 'onBlur' }}
@@ -70,7 +69,7 @@ const ContactPage = () => {
 
         <Submit disabled={loading}>Save</Submit>
       </Form>
-    </BlogLayout>
+    </MainLayout>
   )
 }
 

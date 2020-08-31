@@ -1,11 +1,14 @@
-import BlogPost from '../BlogPost/BlogPost'
+import Items from 'src/components/Items'
 
 export const QUERY = gql`
-  query {
-    posts {
+  query MyItemsListQuery {
+    myItems {
       id
       title
-      body
+      description
+      visible
+      ownerId
+      borrowerId
       createdAt
     }
   }
@@ -17,6 +20,6 @@ export const Empty = () => <div>Empty</div>
 
 export const Failure = ({ error }) => <div>Error: {error.message}</div>
 
-export const Success = ({ posts }) => {
-  return posts.map((post) => <BlogPost key={post.id} post={post} />)
+export const Success = ({ myItems }) => {
+  return <Items items={myItems} />
 }

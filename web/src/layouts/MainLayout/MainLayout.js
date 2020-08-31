@@ -1,7 +1,7 @@
 import { Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth/dist/useAuth'
 
-const BlogLayout = ({ children }) => {
+const MainLayout = ({ children }) => {
   const { logIn, logOut, isAuthenticated, currentUser } = useAuth()
   return (
     <>
@@ -12,7 +12,7 @@ const BlogLayout = ({ children }) => {
         <nav>
           <ul>
             <li>
-              <Link to={routes.about()}>About</Link>
+              <Link to={routes.myItems()}>My Items</Link>
             </li>
             <li>
               <Link to={routes.contact()}>Contact</Link>
@@ -31,4 +31,4 @@ const BlogLayout = ({ children }) => {
   )
 }
 
-export default BlogLayout
+export default MainLayout

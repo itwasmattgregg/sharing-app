@@ -7,8 +7,12 @@ export const QUERY = gql`
       title
       description
       visible
-      ownerId
-      borrowerId
+      borrower {
+        name
+      }
+      owner {
+        name
+      }
     }
   }
 `

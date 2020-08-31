@@ -51,6 +51,7 @@ const ItemsList = ({ items }) => {
         <thead>
           <tr>
             <th>Id</th>
+            <th>Created</th>
             <th>Title</th>
             <th>Description</th>
             <th>Visible</th>
@@ -63,6 +64,7 @@ const ItemsList = ({ items }) => {
           {items.map((item) => (
             <tr key={item.id}>
               <td>{truncate(item.id)}</td>
+              <td>{timeTag(item.createdAt)}</td>
               <td>{truncate(item.title)}</td>
               <td>{truncate(item.description)}</td>
               <td>{checkboxInputTag(item.visible)}</td>

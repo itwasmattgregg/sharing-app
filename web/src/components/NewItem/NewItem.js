@@ -20,11 +20,11 @@ const NewItem = () => {
   })
 
   const onSave = (input) => {
-    const castInput = Object.assign(input, {
-      ownerId: parseInt(input.ownerId),
-      borrowerId: parseInt(input.borrowerId),
-    })
-    createItem({ variables: { input: castInput } })
+    // const castInput = Object.assign(input, {
+    //   ownerId: parseInt(input.ownerId),
+    //   borrowerId: parseInt(input.borrowerId),
+    // })
+    createItem({ variables: { input } })
   }
 
   return (

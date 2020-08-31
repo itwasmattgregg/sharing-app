@@ -1,4 +1,4 @@
-import { Loading, Empty, Failure, Success } from './BlogPostCell'
+import { Loading, Empty, Failure, Success } from './MyItemsListCell'
 
 export const loading = () => {
   return Loading ? <Loading /> : null
@@ -13,7 +13,7 @@ export const failure = () => {
 }
 
 export const success = () => {
-  return Success ? <Success blogPost={{ mock: 'data' }} /> : null
+  return Success ? <Success myItemsList={{ mock: 'data' }} /> : null
 }
 
-export default { title: 'Cells/BlogPostCell' }
+export default { title: 'Cells/MyItemsListCell' }

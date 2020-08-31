@@ -1,8 +1,18 @@
+import { context } from '@redwoodjs/api/dist/globalContext'
+
 import { db } from 'src/lib/db'
 import { requireAuth } from 'src/lib/auth'
 
 export const items = () => {
   return db.item.findMany()
+}
+
+export const myItems = () => {
+  return db.item.findMany({
+    where: {
+      owner: context.currentUser,
+    },
+  })
 }
 
 export const item = ({ id }) => {
@@ -12,16 +22,10 @@ export const item = ({ id }) => {
 }
 
 export const createItem = ({ input }) => {
-  const { ownerId, borrowerId, ...localFields } = input
-  let data = {
-    ...localFields,
-    owner: { connect: { id: ownerId } },
-  }
-  if (borrowerId) {
-    data = {
-      ...data,
-      borrower: { connect: { id: borrowerId } },
-    }
+  requireAuth()
+  const data = {
+    ...input,
+    owner: { connect: { email: context.currentUser.email } },
   }
   return db.item.create({
     data,
@@ -29,6 +33,7 @@ export const createItem = ({ input }) => {
 }
 
 export const updateItem = ({ id, input }) => {
+  requireAuth()
   return db.item.update({
     data: input,
     where: { id },
@@ -36,6 +41,7 @@ export const updateItem = ({ id, input }) => {
 }
 
 export const deleteItem = ({ id }) => {
+  requireAuth()
   return db.item.delete({
     where: { id },
   })
@@ -52,9 +58,8 @@ export const checkoutItem = ({ id }) => {
   requireAuth()
   return db.item.update({
     data: {
-      borrower: db.user.findOne({
-        where: { email: context.currentUser.email },
-      }),
+      borrowedAt: Date.now(),
+      borrower: { connect: { email: context.currentUser.email } },
     },
     where: { id },
   })

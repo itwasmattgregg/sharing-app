@@ -1,8 +1,8 @@
 import { render, screen } from '@redwoodjs/testing'
 
-import { Loading, Empty, Failure, Success } from './BlogPostCell'
+import { Loading, Empty, Failure, Success } from './UsersListCell'
 
-describe('BlogPostCell', () => {
+describe('UsersListCell', () => {
   it('Loading renders successfully', () => {
     render(<Loading />)
     // Use screen.debug() to see output.
@@ -20,9 +20,11 @@ describe('BlogPostCell', () => {
   })
 
   it('Success renders successfully', () => {
-    render(<Success userExample={{ blogPost: { objectKey: 'objectValue' } }} />)
+    render(
+      <Success userExample={{ usersList: { objectKey: 'objectValue' } }} />
+    )
     expect(
-      screen.queryByText('{"blogPost":{"objectKey":"objectValue"}}')
+      screen.queryByText('{"usersList":{"objectKey":"objectValue"}}')
     ).toBeInTheDocument()
   })
 })

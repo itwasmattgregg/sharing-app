@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing'
 
-import BlogPost from './BlogPost'
+import MainLayout from './MainLayout'
 
-describe('BlogPost', () => {
+describe('MainLayout', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<BlogPost />)
+      render(<MainLayout />)
     }).not.toThrow()
   })
 })

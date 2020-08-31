@@ -63,12 +63,12 @@ const Item = ({ item }) => {
               <td>{checkboxInputTag(item.visible)}</td>
             </tr>
             <tr>
-              <th>Owner id</th>
-              <td>{item.ownerId}</td>
+              <th>Owner</th>
+              <td>{item.owner.name}</td>
             </tr>
             <tr>
-              <th>Borrower id</th>
-              <td>{item.borrowerId}</td>
+              <th>Borrower</th>
+              <td>{item.borrower?.name}</td>
             </tr>
           </tbody>
         </table>

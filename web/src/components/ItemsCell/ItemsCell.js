@@ -1,5 +1,4 @@
 import { Link, routes } from '@redwoodjs/router'
-
 import Items from 'src/components/Items'
 
 export const QUERY = gql`
@@ -11,6 +10,7 @@ export const QUERY = gql`
       visible
       ownerId
       borrowerId
+      createdAt
     }
   }
 `

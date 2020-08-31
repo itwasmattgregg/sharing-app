@@ -4,6 +4,9 @@ export const QUERY = gql`
       id
       title
       createdAt
+      owner {
+        name
+      }
     }
   }
 `

@@ -1,12 +1,12 @@
-import BlogLayout from 'src/layouts/BlogLayout'
-import ItemsListCell from 'src/components/ItemsListCell'
+import MainLayout from 'src/layouts/MainLayout'
+import UsersListCell from 'src/components/UsersListCell'
 
 const HomePage = () => {
   return (
     <>
-      <BlogLayout>
-        <ItemsListCell />
-      </BlogLayout>
+      <MainLayout>
+        <UsersListCell />
+      </MainLayout>
     </>
   )
 }

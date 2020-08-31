@@ -11,10 +11,13 @@ export const schema = gql`
     ownerId: Int!
     borrower: User
     borrowerId: Int
+    borrowedAt: DateTime
+    checkedOut: Boolean!
   }
 
   type Query {
     items: [Item!]!
+    myItems: [Item!]!
     item(id: Int!): Item!
   }
 
@@ -22,16 +25,12 @@ export const schema = gql`
     title: String!
     description: String!
     visible: Boolean!
-    ownerId: Int!
-    borrowerId: Int
   }
 
   input UpdateItemInput {
     title: String
     description: String
     visible: Boolean
-    ownerId: Int
-    borrowerId: Int
   }
 
   type Mutation {

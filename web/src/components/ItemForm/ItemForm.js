@@ -5,7 +5,6 @@ import {
   Label,
   TextField,
   CheckboxField,
-  NumberField,
   Submit,
 } from '@redwoodjs/web'
 
@@ -70,37 +69,6 @@ const ItemForm = (props) => {
           errorClassName="rw-input rw-input-error"
         />
         <FieldError name="visible" className="rw-field-error" />
-
-        <Label
-          name="ownerId"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Owner id
-        </Label>
-        <NumberField
-          name="ownerId"
-          defaultValue={props.item?.ownerId}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-        <FieldError name="ownerId" className="rw-field-error" />
-
-        <Label
-          name="borrowerId"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Borrower id
-        </Label>
-        <NumberField
-          name="borrowerId"
-          defaultValue={props.item?.borrowerId}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-        />
-        <FieldError name="borrowerId" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
